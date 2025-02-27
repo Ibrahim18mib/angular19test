@@ -1,0 +1,67 @@
+<div class="container">
+    <h2>Employee Management</h2>
+
+    <form #employeeForm="ngForm" class="employee-form">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" [(ngModel)]="currentEmployee.firstName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" [(ngModel)]="currentEmployee.lastName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="currentEmployee.email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="contactNo">Contact No:</label>
+            <input type="text" id="contactNo" name="contactNo" [(ngModel)]="currentEmployee.contactNo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" [(ngModel)]="currentEmployee.city" required>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" [(ngModel)]="currentEmployee.address" required></textarea>
+        </div>
+
+        <!-- <button type="submit">{{ isEditing ? 'Update' : 'Add' }} Employee</button>
+        <button type="button" *ngIf="isEditing" (click)="cancelEdit()">Cancel</button> -->
+    </form>
+
+    <div class="employees-list">
+        <h3>Employees List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{employee.employeeId}}</td>
+                    <td>{{employee.firstName}} {{employee.lastName}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.contactNo}}</td>
+                    <td>{{employee.city}}</td>
+                    <td>
+                        <!-- <button (click)="editEmployee(employee)">Edit</button>
+                        <button (click)="deleteEmployee(employee.employeeId)">Delete</button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
